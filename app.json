@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7c58c84c-0c36-4c33-962f-99be2d58a30d"
+      }
+    },
+    "owner": "cesarnml"
   }
 }
