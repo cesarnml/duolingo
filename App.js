@@ -1,47 +1,17 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text } from 'react-native'
 import styles from './App.styles'
+import ImageOption from './components/ImageOption'
+import data from './assets/data/oneQuestionWithOption'
 
 const App = () => {
+  const { question, options } = data
   return (
     <View style={styles.root}>
-      <Text style={styles.title}>Which of these is the "glass"?</Text>
+      <Text style={styles.title}>{question}</Text>
       <View style={styles.optionsContainer}>
-        <View style={styles.optionContainer}>
-          <Image
-            source={{
-              uri: 'https://fsmd-assets.s3.eu-west-1.amazonaws.com/duolingo/images/cup.png',
-            }}
-            style={styles.optionImage}
-          />
-          <Text style={styles.optionText}>Glass</Text>
-        </View>
-        <View style={styles.optionContainer}>
-          <Image
-            source={{
-              uri: 'https://fsmd-assets.s3.eu-west-1.amazonaws.com/duolingo/images/cup.png',
-            }}
-            style={styles.optionImage}
-          />
-          <Text style={styles.optionText}>Glass</Text>
-        </View>
-        <View style={styles.optionContainer}>
-          <Image
-            source={{
-              uri: 'https://fsmd-assets.s3.eu-west-1.amazonaws.com/duolingo/images/cup.png',
-            }}
-            style={styles.optionImage}
-          />
-          <Text style={styles.optionText}>Glass</Text>
-        </View>
-        <View style={styles.optionContainer}>
-          <Image
-            source={{
-              uri: 'https://fsmd-assets.s3.eu-west-1.amazonaws.com/duolingo/images/cup.png',
-            }}
-            style={styles.optionImage}
-          />
-          <Text style={styles.optionText}>Glass</Text>
-        </View>
+        {options.map((option) => (
+          <ImageOption key={option.id} image={option.image} text={option.text} />
+        ))}
       </View>
     </View>
   )
