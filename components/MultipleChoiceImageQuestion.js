@@ -19,7 +19,7 @@ const MultipleChoiceImageQuestion = ({ question, options, selectedOption, setSel
           />
         ))}
       </View>
-      <Button text='Check' onPress={onButtonPress} disabled={true} />
+      <Button text='Check' onPress={onButtonPress} disabled={!selectedOption} />
     </>
   )
 }

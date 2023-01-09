@@ -9,7 +9,7 @@ const ImageOption = ({ id, image, text, selectedOption, setSelectedOption }) => 
   return (
     <Pressable
       style={isSelected ? styles.optionContainerSelected : styles.optionContainer}
-      onPress={(e) => {
+      onPress={() => {
         setSelectedOption(id)
       }}
     >
