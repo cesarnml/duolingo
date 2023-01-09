@@ -1,18 +1,28 @@
-import { View, Text } from 'react-native'
+import { useState } from 'react'
+import { Text, View } from 'react-native'
 import styles from './App.styles'
-import ImageOption from './components/ImageOption'
 import data from './assets/data/oneQuestionWithOption'
+import Button from './components/Button'
+import ImageOption from './components/ImageOption'
+import MultipleChoiceImageQuestion from './components/MultipleChoiceImageQuestion'
 
 const App = () => {
   const { question, options } = data
+  const [selectedOption, setSelectedOption] = useState(null)
+
+  const onButtonPress = () => {
+    console.warn('Pressed')
+  }
+
   return (
     <View style={styles.root}>
-      <Text style={styles.title}>{question}</Text>
-      <View style={styles.optionsContainer}>
-        {options.map((option) => (
-          <ImageOption key={option.id} image={option.image} text={option.text} />
-        ))}
-      </View>
+      <MultipleChoiceImageQuestion
+        question={question}
+        options={options}
+        selectedOption={selectedOption}
+        setSelectedOption={setSelectedOption}
+        onButtonPress={onButtonPress}
+      />
     </View>
   )
 }

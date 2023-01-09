@@ -4,6 +4,7 @@ export default {
     {
       id: 'option1',
       image: 'cup.png',
+      text: 'la taza',
     },
     {
       id: 'option2',

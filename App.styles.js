@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
-    marginTop: 40,
+    marginTop: 50,
   },
 
   title: {
@@ -37,12 +37,58 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
+  optionContainerSelected: {
+    borderWidth: 2,
+    borderBottomWidth: 4,
+    borderColor: 'lightgrey',
+    borderRadius: 10,
+
+    width: '48%',
+    height: '48%',
+
+    alignItems: 'center',
+    backgroundColor: '#DDF4FE',
+    borderColor: '#81D5FE',
+  },
   optionImage: {
     flex: 1,
     width: '100%',
   },
 
   optionText: {},
+
+  optionTextSelected: {
+    color: '#40BEF7',
+    fontWeight: 'bold',
+  },
+
+  buttonContainer: {
+    backgroundColor: '#58CC02',
+    height: 50,
+    marginVertical: 25,
+
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    borderRadius: 5,
+    borderBottomWidth: 5,
+    borderColor: '#57A600',
+  },
+
+  disabledContainer: {
+    backgroundColor: 'lightgrey',
+    borderColor: 'grey',
+  },
+
+  buttonText: {
+    fontSize: 20,
+    color: 'white',
+    fontWeight: 'bold',
+
+    borderBottomColor: 'white',
+    borderBottomWidth: 1.5,
+  },
 })
 
 export default styles

@@ -1,10 +1,18 @@
-import { View, Text, Image } from 'react-native'
+import PropTypes from 'prop-types'
+import { Image, Text, View, Pressable } from 'react-native'
 import styles from '../App.styles'
 
 const baseUrl = 'https://fsmd-assets.s3.eu-west-1.amazonaws.com/duolingo/images/'
-const ImageOption = ({ image, text }) => {
+
+const ImageOption = ({ id, image, text, selectedOption, setSelectedOption }) => {
+  const isSelected = id === selectedOption
   return (
-    <View style={styles.optionContainer}>
+    <Pressable
+      style={isSelected ? styles.optionContainerSelected : styles.optionContainer}
+      onPress={(e) => {
+        setSelectedOption(id)
+      }}
+    >
       <Image
         source={{
           uri: `${baseUrl}${image}`,
@@ -12,8 +20,18 @@ const ImageOption = ({ image, text }) => {
         resizeMode='contain'
         style={styles.optionImage}
       />
-      <Text style={styles.optionText}>{text}</Text>
-    </View>
+      <Text style={isSelected ? styles.optionTextSelected : styles.optionText}>{text.toUpperCase()}</Text>
+    </Pressable>
   )
 }
+
+ImageOption.propsTypes = {
+  image: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+}
+
+ImageOption.defaultProps = {
+  text: 'Default',
+}
+
 export default ImageOption
