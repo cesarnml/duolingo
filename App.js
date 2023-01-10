@@ -1,21 +1,31 @@
 import { useState } from 'react'
 import { View } from 'react-native'
 import styles from './App.styles'
-import questions from './assets/data/imageMultipleChoiceQuestions'
-import MultipleChoiceImageQuestion from './components/MultipleChoiceImageQuestion'
+import questions from './assets/data/openEndedQuestions'
+import OpenEndedQuestion from './components/OpenEndedQuestion'
 
 const App = () => {
   const [selectedOption, setSelectedOption] = useState(null)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
 
   const currentQuestion = questions[currentQuestionIndex]
-  console.log('outside:', currentQuestionIndex)
-  const { question, options } = currentQuestion
+
+  const onCheckPress = (e, answer) => {
+    if (currentQuestion.answer.toLowerCase().trim() === answer) {
+      if (currentQuestionIndex < questions.length - 1) {
+        setCurrentQuestionIndex((prev) => prev + 1)
+      } else {
+        alert('You win')
+        setCurrentQuestionIndex(0)
+      }
+    } else {
+      alert('Wrong. Try again')
+    }
+  }
 
   const onButtonPress = () => {
     const touchedOption = options.find((option) => option.id === selectedOption)
     if (touchedOption.correct) {
-      console.log('currentQuestionIndex:', currentQuestionIndex)
       if (currentQuestionIndex < questions.length - 1) {
         setCurrentQuestionIndex((prev) => prev + 1)
         setSelectedOption(null)
@@ -31,13 +41,7 @@ const App = () => {
 
   return (
     <View style={styles.root}>
-      <MultipleChoiceImageQuestion
-        question={question}
-        options={options}
-        selectedOption={selectedOption}
-        setSelectedOption={setSelectedOption}
-        onButtonPress={onButtonPress}
-      />
+      <OpenEndedQuestion question={currentQuestion} onPress={onCheckPress} />
     </View>
   )
 }

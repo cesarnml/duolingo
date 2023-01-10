@@ -3,10 +3,12 @@ import Button from './Button'
 import ImageOption from './ImageOption'
 import styles from '../App.styles'
 
-const MultipleChoiceImageQuestion = ({ question, options, selectedOption, setSelectedOption, onButtonPress }) => {
+const MultipleChoiceImageQuestion = ({ question, selectedOption, setSelectedOption, onButtonPress }) => {
+  const { question: prompt, options } = question
+
   return (
     <>
-      <Text style={styles.title}>{question}</Text>
+      <Text style={styles.title}>{prompt}</Text>
       <View style={styles.optionsContainer}>
         {options.map((option) => (
           <ImageOption
