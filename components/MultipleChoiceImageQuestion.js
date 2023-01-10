@@ -3,7 +3,7 @@ import Button from './Button'
 import ImageOption from './ImageOption'
 import styles from '../App.styles'
 
-const MultipleChoiceImageQuestion = ({ question, selectedOption, setSelectedOption, onButtonPress }) => {
+const MultipleChoiceImageQuestion = ({ question, selectedOption, setSelectedOption, onPress }) => {
   const { question: prompt, options } = question
 
   return (
@@ -21,7 +21,7 @@ const MultipleChoiceImageQuestion = ({ question, selectedOption, setSelectedOpti
           />
         ))}
       </View>
-      <Button text='Check' onPress={onButtonPress} disabled={!selectedOption} />
+      <Button text='Check' onPress={onPress} disabled={!selectedOption} />
     </>
   )
 }

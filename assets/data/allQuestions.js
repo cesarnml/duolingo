@@ -4,20 +4,20 @@ export default [
     type: 'FILL_IN_THE_BLANK',
     parts: [
       {
-        text: 'la',
-        isBlank: true,
-      },
-      {
-        text: 'nino',
-        isBlank: true,
-      },
-      {
         text: 'el',
         isBlank: true,
       },
       {
-        text: 'nina',
+        text: 'nino',
+        isBlank: false,
+      },
+      {
+        text: 'la',
         isBlank: true,
+      },
+      {
+        text: 'nina',
+        isBlank: false,
       },
     ],
     options: ['la', 'el', 'nina', 'nino', 'ella'],
